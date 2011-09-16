@@ -17,20 +17,23 @@ def get(i):
     # normalize per http://en.wikipedia.org/wiki/Cross-correlation
     return (data - data.mean()) / data.std()
 
-pics = os.listdir("D:\\src\\test_resize75")
+pics = os.listdir("D:\\Eigene Datein\\Python\\Image Similarity\\src2\\test_resize75")
 index1 = 0
 index2 = 0
 f = open('out.txt', 'w')
 for x in range(len(pics)):
-    im = "D:\\src\\test_resize75\\" + pics[index1]
+    im = "D:\\Eigene Datein\\Python\\Image Similarity\\src2\\test_resize75\\" + pics[index1]
     #print pics
     for pic in pics:
-        im2 = "D:\\src\\test_resize75\\" + pics[index2]
-        data1 = get(im)
-        data2 = get(im2)
-        cc = c2d(data1, data2, mode='same')
-        f.write(pics[index1] + '\t' + pics[index2] + '\t' + str(cc.max()) + '\n')
-        print pics[index1], pics[index2], cc.max()
+        try:
+            im2 = "D:\\Eigene Datein\\Python\\Image Similarity\\src2\\test_resize75\\" + pics[index2]
+            data1 = get(im)
+            data2 = get(im2)
+            cc = c2d(data1, data2, mode='same')
+            f.write(pics[index1] + '\t' + pics[index2] + '\t' + str(cc.max()) + '\n')
+            print pics[index1], pics[index2], cc.max()
+        except IOError:
+            pass
         
         index2 = index2 + 1
     index1 = index1 + 1
