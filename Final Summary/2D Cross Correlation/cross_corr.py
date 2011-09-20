@@ -25,8 +25,12 @@ def get(i):
 im1 = "09B_084_01.jpg"
 im2 = "09B_084_01.jpg"
 im3 = "2-3.jpg"
-data1 = get(im1)
-data2 = get(im3)
+im4 = "belichtung1.jpg"
+im5 = "belichtung2.jpg"
+im6 = 'unterschiedlich1.jpg'
+im7 = 'unterschiedlich2.jpg'
+data1 = get(im6)
+data2 = get(im6)
 cc = c2d(data1, data2, mode='same')
 f = open('out.txt', 'w')
 for i in cc:

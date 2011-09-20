@@ -1,6 +1,16 @@
 from PIL import Image
 import numpy
-im = Image.open('base.png')
+
+
+im1 = "09B_084_01.jpg"
+im2 = "09B_085_01.jpg"
+im3 = "2-3.jpg"
+im4 = "belichtung1.jpg"
+im5 = "belichtung2.jpg"
+im6 = 'unterschiedlich1.jpg'
+im7 = 'unterschiedlich2.jpg'
+
+im = Image.open(im4)
 im = im.resize((50, 200))
   
 r = numpy.asarray(im.convert( "RGB", (1,0,0,0, 1,0,0,0, 1,0,0,0) ))
@@ -11,7 +21,7 @@ hg, h_bins = numpy.histogram(g, bins=256, normed=True)
 hb, h_bins = numpy.histogram(b, bins=256, normed=True)
 hist1 = numpy.array([hr, hg, hb]).ravel()
 
-im = Image.open('image2.png')
+im = Image.open(im5)
 im = im.resize((50, 200))
 r = numpy.asarray(im.convert( "RGB", (1,0,0,0, 1,0,0,0, 1,0,0,0) ))
 g = numpy.asarray(im.convert( "RGB", (0,1,0,0, 0,1,0,0, 0,1,0,0) ))
